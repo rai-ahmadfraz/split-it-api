@@ -20,6 +20,13 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "noFallthroughCasesInSwitch": false,
+    
+    // added below lines if login user did no comes up in request its not tested yet 
+    // 👇 Add these two options
+    // "typeRoots": ["./node_modules/@types", "./src/types"]
+  },
+
+  // 👇 Add this section at the bottom
+  // "include": ["src/**/*", "src/types/**/*.d.ts"]
 }

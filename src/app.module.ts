@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ExpenseModule } from './expense/expense.module';
 @Module({
   imports: [AuthModule, UsersModule,
     TypeOrmModule.forRoot({
@@ -17,6 +18,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true, // automatically sync database schema (disable in production)
       // logging: true, // enable SQL query logging (optional)
     }),
+    ExpenseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
