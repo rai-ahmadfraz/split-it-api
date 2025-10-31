@@ -18,7 +18,7 @@ import { ExpenseModule } from './expense/expense.module';
       // database: 'splitit_db',
 
       // ===== PRODUCTION (Railway) =====
-      url: process.env.DATABASE_URL, // Railway variable: ${{ MySQL.MYSQL_URL }}
+      url: "mysql://root:oKizfCJWqJmUIMeQMFmNzukDcRJfHcxT@containers-us-west-123.railway.app:1234/railway", // Railway variable: ${{ MySQL.MYSQL_URL }}
 
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true, // Disable in production if you want safer migrations
