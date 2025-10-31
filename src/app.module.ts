@@ -8,15 +8,21 @@ import { ExpenseModule } from './expense/expense.module';
 @Module({
   imports: [AuthModule, UsersModule,
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost', // or your database host
-      port: 3306, // default MySQL port
-      username: 'root', // your database username
-      password: '', // your database password
-      database: 'splitit_db', // your database name
-      entities: [__dirname + '/**/*.entity{.ts,.js}'], // auto-load entities
-      synchronize: true, // automatically sync database schema (disable in production)
-      // logging: true, // enable SQL query logging (optional)
+       type: 'mysql',
+
+      // ===== LOCAL DEVELOPMENT =====
+      // host: 'localhost',
+      // port: 3306,
+      // username: 'root',
+      // password: '',
+      // database: 'splitit_db',
+
+      // ===== PRODUCTION (Railway) =====
+      url: process.env.DATABASE_URL, // Railway variable: ${{ MySQL.MYSQL_URL }}
+
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: true, // Disable in production if you want safer migrations
+      // logging: true, // optional
     }),
     ExpenseModule,
   ],
